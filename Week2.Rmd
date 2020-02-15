@@ -1,0 +1,48 @@
+---
+title: "Week2"
+author: "P.W. Jacobus"
+date: "2/15/2020"
+output: ioslides_presentation
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+## USC and UCLA Locations in Los Angeles
+### Date Created: February 15, 2020
+```{r leaflet map, fig.width=6, fig.height=4}
+library(leaflet)
+
+## Lat and Long of USC and UCLA
+laLatLong <- data.frame(
+  lat = c(34.0224, 34.0689),
+  lng = c(-118.2851, -118.4452))
+
+## Icons
+uscIcon <- makeIcon(
+  iconUrl = "USC-logo2.png",
+  iconWidth = 50, iconHeight = 50,
+  iconAnchorX = 20, iconAnchorY = 20
+)  
+  
+uclaIcon <- makeIcon(
+  iconUrl = "UCLA-logo.png",
+  iconWidth = 50, iconHeight = 30,
+  iconAnchorX = 20, iconAnchorY = 20
+)  
+icons<-iconList(uscIcon, uclaIcon)
+
+## Popups
+sites <- c(
+     "<a href='https://www.usc.edu/'>University of Southern California</a>",
+     "<a href='http://www.ucla.edu/'>University of California at Los Angeles</a>"
+)
+
+## Create Leaflet map
+laLatLong %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(icon = icons, popup = sites)
+```
+For Coursera **Developing Data Products Week 2 Project**
