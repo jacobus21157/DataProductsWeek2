@@ -1,5 +1,6 @@
 ---
 title: "Week2"
+subtitle: "Go to next slide for Leaflet map"
 author: "P.W. Jacobus"
 date: "2/15/2020"
 output: ioslides_presentation
